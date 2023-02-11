@@ -8,6 +8,16 @@ const mongoose = require("mongoose");
 const genres = require("../data/GenreList");
 
 router.get("/test", async (req, res, next) => {
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+    );
     try {
         res.status(200).json({ message: "Hello World!" });
     } catch (error) {
@@ -39,6 +49,16 @@ function formatManga(m) {
 }
 
 router.get("/rec", async (req, res, next) => {
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+    );
     try {
         const recs = await Recommendation.findOne({ mal_id: req.query.id });
         const rec_list = [...recs["recs"]];
@@ -52,6 +72,16 @@ router.get("/rec", async (req, res, next) => {
 });
 
 router.get("/manga", async (req, res, next) => {
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+    );
     try {
         const manga = await Manga.find({
             $or: [
