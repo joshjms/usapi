@@ -7,6 +7,14 @@ const mongoose = require("mongoose");
 
 const genres = require("../data/GenreList");
 
+router.get("/test", async (req, res, next) => {
+    try {
+        res.status(200).json({ message: "Hello World!" });
+    } catch (error) {
+        res.status(500).json({ mmessage: error.message });
+    }
+});
+
 function formatManga(m) {
     manga_genres = [];
     for (let i = 0; i < genres.length; i++) {
