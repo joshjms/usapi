@@ -6,6 +6,7 @@ app.use(cors(), (req, res, next) => {
     console.log("CORS middleware invoked");
     next();
 });
+app.options('*', cors())
 
 app.use("/api", require("./routes/routes"));
 
